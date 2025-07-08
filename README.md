@@ -63,7 +63,28 @@ A custom DSL-like builder for creating lists in Jetpack Compose.
 •Activity Compose
 
 
+=======================********************====================
+Known Issues & Areas for Improvement
+=======================********************====================
 
+•Mock Data Source:
+   • Currently, CoinViewModel uses a hardcoded list of strings. 
+     This should be replaced with a real data source (e.g., network API call, local database).
+
+•Limited Error Handling:
+   • There's no explicit error handling if data fetching fails (once a real data source is implemented). 
+     The UI should reflect loading, error, and empty states.
+
+•Performance with Very Large Lists:
+   • While LazyColumn is efficient, for extremely large and complex item views, 
+     further optimizations like custom keys in items block of LazyColumn inside KList.Render() 
+     might be beneficial to help Compose with efficient recompositions and item identity. Currently, 
+     it relies on positional identity.
+     
+•Single Activity Architecture:
+     •The app uses a single activity, which is good. 
+     Navigation between different screens (if the app were to grow) 
+     would require implementing Jetpack Compose Navigation.
 
 
 
